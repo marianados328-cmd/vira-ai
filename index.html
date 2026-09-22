@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VIRA.AI</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#f8f2ff,#fff);color:#19131f}main{max-width:700px;margin:auto;padding:25px 18px 50px}.logo{font-size:32px;font-weight:900;color:#6d28d9;text-align:center;margin:15px}.logo span{color:#ec4899}h1{font-size:38px;line-height:1.05;margin:35px 0 12px;text-align:center}.sub{text-align:center;color:#6b6475;font-size:17px;line-height:1.5}.card{background:white;border:1px solid #eee5f7;border-radius:22px;padding:22px;margin-top:25px;box-shadow:0 12px 35px #5b21b615}label{display:block;font-weight:bold;margin:15px 0 7px}input,select{width:100%;padding:14px;border:1px solid #ddd4e8;border-radius:12px;font-size:16px}button{width:100%;border:0;border-radius:13px;padding:15px;margin-top:20px;background:linear-gradient(90deg,#6d28d9,#ec4899);color:white;font-size:17px;font-weight:bold}.result{display:none}.item{background:#faf7ff;padding:16px;border-radius:15px;margin:12px 0}.tag{color:#6d28d9;font-weight:bold;font-size:13px;margin-bottom:7px}footer{text-align:center;color:#777;font-size:12px;margin-top:30px}
+</style>
+</head>
+<body>
+<main>
+<div class="logo">VIRA<span>.AI</span></div>
+<h1>Transforme produtos em <span style="color:#8b5cf6">conteúdo que vende.</span></h1>
+<p class="sub">Sua assistente de conteúdo para TikTok Shop.</p>
+
+<div class="card">
+<label>🛍️ Nome do produto</label>
+<input id="produto" placeholder="Ex.: Kit 2 Top Cropped">
+
+<label>💰 Preço</label>
+<input id="preco" placeholder="Ex.: R$ 27,99">
+
+<label>💵 Comissão por venda</label>
+<input id="comissao" placeholder="Ex.: R$ 2,60">
+
+<label>🎯 Público</label>
+<select id="publico">
+<option>Mulheres 18–35</option>
+<option>Moda feminina</option>
+<option>Fitness</option>
+<option>Beleza</option>
+<option>Casa e organização</option>
+<option>Outro</option>
+</select>
+
+<label>🎬 Estilo do vídeo</label>
+<select id="estilo">
+<option>Viral</option>
+<option>Oferta direta</option>
+<option>Review</option>
+<option>Storytelling</option>
+<option>Humor</option>
+</select>
+
+<button onclick="gerar()">✨ GERAR CONTEÚDO</button>
+</div>
+
+<div id="resultado" class="card result"></div>
+
+<footer>VIRA.AI • MVP 0.1</footer>
+</main>
+
+<script>
+function gerar(){
+let p=document.getElementById("produto").value||"este produto";
+let preco=document.getElementById("preco").value||"um preço especial";
+let com=document.getElementById("comissao").value||"sua comissão";
+let publico=document.getElementById("publico").value;
+let estilo=document.getElementById("estilo").value;
+
+let r=document.getElementById("resultado");
+r.style.display="block";
+
+r.innerHTML=`
+<h2>✨ Sua estratégia VIRA.AI</h2>
+
+<div class="item">
+<div class="tag">VIRA 01 • GANCHO</div>
+“Gente, eu encontrei ${p} por ${preco} e precisava mostrar isso aqui!”
+</div>
+
+<div class="item">
+<div class="tag">VIRA 02 • OFERTA</div>
+“Você pagaria mais por ${p}? Olha o preço que encontrei hoje: ${preco}.”
+</div>
+
+<div class="item">
+<div class="tag">VIRA 03 • PÚBLICO</div>
+“Se você é ${publico.toLowerCase()}, presta atenção nesse achadinho.”
+</div>
+
+<div class="item">
+<div class="tag">VIRA 04 • ROTEIRO ${estilo.toUpperCase()}</div>
+Mostre o produto nos primeiros 3 segundos. Depois apresente o principal benefício, mostre um detalhe importante e finalize com uma chamada para conferir o produto.
+</div>
+
+<div class="item">
+<div class="tag">VIRA 05 • CTA</div>
+“Confira o produto no carrinho e veja o preço, tamanho, avaliações e condições atuais antes de comprar.”
+</div>
+
+<div class="item">
+<div class="tag">📝 LEGENDA</div>
+Testando mais um achadinho da TikTok Shop 👀 ${p}. Confira o preço atual e as avaliações no anúncio antes de comprar.
+</div>
+
+<div class="item">
+<div class="tag">💵 COMISSÃO INFORMADA</div>
+${com}
+</div>
+`;
+r.scrollIntoView({behavior:"smooth"});
+}
+</script>
+</body>
+</html>
